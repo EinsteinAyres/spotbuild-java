@@ -1,165 +1,130 @@
-# SpotBuild 💊
+SpotBuild 💊
+Assistente inteligente para administração de medicamentos
+Frontend mobile desenvolvido em React Native, com arquitetura escalável e foco em performance, segurança e usabilidade.
 
-**Auxiliador de administrações de medicamentos**  
-Backend desenvolvido em **Java 21** com **arquitetura Hexagonal** e uso das melhores práticas modernas de engenharia de software.
+📌 Visão Geral
+O SpotBuild é um aplicativo mobile projetado para auxiliar pacientes e profissionais da saúde na administração segura e organizada de medicamentos. Desenvolvido com foco em UX de qualidade, modularidade de código, acessibilidade e integração fluida com APIs externas e internas.
 
----
+🧱 Stack Tecnológica
+⚛️ Framework e Linguagem
+React Native (0.73+)
 
-## 📌 Visão Geral
+TypeScript (tipagem forte e segura)
 
-O **SpotBuild** é uma aplicação backend criada para **gerenciar e auxiliar na administração de medicamentos**, oferecendo uma base sólida, escalável e observável. Foi projetado com foco em qualidade de código, testes automatizados, segurança e modularidade.
+Expo (para prototipação e builds rápidas — opcional)
 
----
+🧩 Gerenciamento de Estado
+Zustand (leve, performático e moderno)
 
-## 🧱 Stack Tecnológica
+React Context (para temas, auth, etc.)
 
-### 🔗 Linguagem e Plataforma
-- **Java 21 LTS**
+🌐 Comunicação com API
+Axios + interceptors (com JWT)
 
-### 🚀 Frameworks Principais
-- **Spring Boot 3.x**
-- **Spring Security** (com JWT)
-- **Spring Data JPA (Hibernate)**
+OpenAPI Generator (clientes tipados)
 
-### 🏗️ Build & Dependências
-- **Maven**
+🧑‍🎨 UI/UX
+React Native Paper ou Tamagui (UI Kit cross-platform)
 
-### 💃 Banco de Dados e Persistência
-- **PostgreSQL**
-- **Redis** (cache)
-- **Flyway** (migrations versionadas)
+React Navigation (pilhas, tabs, drawer)
 
-### 🔄 Mapeamento de Objetos
-- **MapStruct** (DTO ↔ Entity)
+Lottie (animações fluídas e acessíveis)
 
-### 🐳 Infraestrutura e DevOps
-- **Docker**
-- **Docker Compose** (ambiente local completo)
+React Native SVG (ícones e gráficos vetoriais)
 
-### 🔐 Segurança
-- **JWT** (autenticação stateless)
-- **Spring Security** (proteção de endpoints)
+📱 Funcionalidades Mobile
+Push Notifications (Firebase Cloud Messaging)
 
-### 📚 Documentação
-- **Swagger / OpenAPI 3.0** (`springdoc-openapi`)
+Deep Linking
 
-### 📈 Observabilidade
-- **Micrometer** (métricas)
-- **Prometheus** (coleta de métricas)
-- **Grafana** (visualização)
-- **Datadog** (observabilidade completa – logs, métricas, traces)
+Geolocalização (caso necessário)
 
-### 🧪 Testes
-- **JUnit 5**
-- **Mockito**
-- **Testcontainers** (testes de integração reais com PostgreSQL, Redis, etc.)
+Offline-first com MMKV ou Redux-Persist
 
-### 📋 Validação
-- **Jakarta Bean Validation** (`@NotNull`, `@Size`, etc.)
+🔒 Segurança
+Secure Storage (expo-secure-store ou react-native-keychain)
 
-### 🪐 Utilitários Recomendados
-- **Lombok** (boilerplate killer)
-- **Spring Retry + Resilience4j** (tolerância a falhas)
-- **SLF4J + Logback** (logging estruturado)
+Autenticação com JWT
 
----
+Biometria (Face ID, Touch ID) com expo-local-authentication
 
-## 🧠 Arquitetura
+🧪 Testes
+Jest (unitários)
 
-Este projeto utiliza a **Arquitetura Hexagonal (Ports and Adapters)**, que garante:
+React Native Testing Library (componentes)
 
-- **Isolamento das regras de negócio**
-- **Facilidade para testes unitários e de integração**
-- **Baixo acoplamento com frameworks e tecnologias**
-- **Facilidade para troca de banco, mensageria, ou APIs externas**
+Detox (e2e)
 
-Estrutura básica:
+🔄 CI/CD
+EAS (Expo Application Services) ou Fastlane (builds e deploys automatizados)
 
-```
-spotbuild
-├── application (casos de uso)
-├── domain (entidades e regras de negócio)
-├── infrastructure (implementações técnicas: banco, cache, etc.)
-├── web (controllers/rest adapters)
-└── config (segurança, beans, etc.)
-```
+GitHub Actions (testes, lint, builds automáticos)
 
----
-
-## 🧪 Como Rodar Localmente
-
-```bash
-git clone https://github.com/seu-usuario/spotbuild.git
-cd spotbuild
-./mvnw clean install
-docker-compose up
-```
-
-Acesse:
-- API Docs: http://localhost:8080/swagger-ui.html
-- Prometheus: http://localhost:9090
-- Grafana: http://localhost:3000
-- Datadog (se configurado): [sua instância/URL do Datadog]
-
----
-
-## 🚧 Em Andamento
-
-- [ ] Integração com notificações (ex: e-mail, push)
-- [ ] Dashboard administrativo
-- [ ] Auditoria de logs com ELK ou Loki
-
----
-
-## 🧬 Frontend (Angular)
-
-O projeto também conta com um **frontend em Angular 17** que consome a API documentada via Swagger, com estrutura modularizada e suporte à geração automática de clientes REST.
-
-### 📊 Stack do Frontend
-- **Angular 17+**
-- **TypeScript**
-- **RxJS**
-- **Swagger TypeScript API** (gerador de clientes tipados via OpenAPI)
-
-### 📁 Estrutura
-```
-frontend/
+📁 Estrutura do Projeto
+bash
+Copiar
+Editar
+spotbuild-app/
 ├── src/
-│   ├── app/
-│   │   ├── core/
-│   │   │   ├── services/ (API clients)
-│   │   │   └── interceptors/
-│   │   ├── features/ (módulos funcionais)
-│   │   └── app.module.ts
-│   └── environments/
-├── angular.json
+│   ├── assets/           # imagens, fontes, lotties
+│   ├── components/       # componentes reutilizáveis
+│   ├── features/         # módulos funcionais (medicamentos, login, notificações)
+│   ├── navigation/       # pilhas e rotas
+│   ├── services/         # api, auth, storage, etc.
+│   ├── store/            # Zustand stores
+│   ├── themes/           # temas e estilos globais
+│   ├── hooks/            # custom hooks
+│   └── App.tsx           # ponto de entrada
+├── app.json              # config do Expo
 ├── package.json
 └── tsconfig.json
-```
+🔄 Integração com API via Swagger / OpenAPI
+Geramos os clientes tipados com base na especificação OpenAPI do backend:
 
-### 🔄 Integração com Swagger
-A API do backend é documentada via OpenAPI e usada pelo frontend via:
-```bash
-npx swagger-typescript-api -p http://localhost:8080/v3/api-docs -o src/app/core/services/api --axios
-```
+bash
+Copiar
+Editar
+npx @openapitools/openapi-generator-cli generate \
+  -i http://localhost:8080/v3/api-docs \
+  -g typescript-axios \
+  -o src/services/api
+🔑 Autenticação
+O app autentica o usuário via JWT. O token é armazenado com segurança e adicionado automaticamente nas requisições autenticadas via interceptor Axios.
 
-### 🔑 Autenticação JWT
-O frontend utiliza um interceptor para enviar automaticamente o token JWT para as requisições autenticadas. O login retorna o token fornecido pela API.
+Login → Armazena token → Redireciona usuário autenticado.
 
-### 🚀 Como rodar o Frontend
-```bash
-cd frontend
+🚀 Como Rodar Localmente
+bash
+Copiar
+Editar
+git clone https://github.com/seu-usuario/spotbuild-app.git
+cd spotbuild-app
 npm install
-npm start
-```
-A aplicação Angular estará acessível em `http://localhost:4200`
+npx expo start
+Você pode rodar o app em:
 
----
+Android/iOS físicos (via QR Code com Expo Go)
 
-## 📊 Licença
+Emuladores Android Studio / Xcode
 
+🚧 Em Desenvolvimento
+Integração com notificações push (Firebase)
+
+Dashboard com gráficos de consumo
+
+Modo offline com sincronização
+
+Acessibilidade com VoiceOver e TalkBack
+
+📊 Monitoramento e Logging
+Sentry (erros e performance)
+
+Firebase Analytics ou Amplitude
+
+react-native-logs para logging estruturado
+
+📄 Licença
 Este projeto é open source e distribuído sob a licença MIT.
 
----
-
-> Desenvolvido com ❤️ e obsessão por código limpo.
+Desenvolvido com ☕, 💊 e paixão por UX de verdade.
+Código limpo salva mais vidas do que parece.
