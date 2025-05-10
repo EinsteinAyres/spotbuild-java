@@ -1,6 +1,3 @@
-Aqui está o README reescrito em **Markdown** para o seu projeto em **React Native**:
-
-````markdown
 # SpotBuild 💊  
 **Assistente inteligente para administração de medicamentos**  
 Frontend mobile desenvolvido em **React Native**, com arquitetura escalável e foco em performance, segurança e usabilidade.
