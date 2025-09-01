@@ -12,9 +12,8 @@ O **SpotBuild** é um aplicativo mobile projetado para **auxiliar pacientes e pr
 ## 🧱 Stack Tecnológica
 
 ### ⚛️ Framework e Linguagem
-- **React Native (0.73+)**
-- **TypeScript** (tipagem forte e segura)
-- **Expo** (para prototipação e builds rápidas — opcional)
+- **Java (21)**
+- **Spring** (3.x)
   
 ### 🧩 Gerenciamento de Estado
 - **Zustand** (leve, performático e moderno)
